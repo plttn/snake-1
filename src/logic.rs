@@ -25,10 +25,10 @@ pub fn info() -> Value {
 
     return json!({
         "apiversion": "1",
-        "author": "", // TODO: Your Battlesnake Username
-        "color": "#888888", // TODO: Choose color
-        "head": "default", // TODO: Choose head
-        "tail": "default", // TODO: Choose tail
+        "author": "plttn", 
+        "color": "#888888", 
+        "head": "default", 
+        "tail": "default", 
     });
 }
 
@@ -74,8 +74,20 @@ pub fn get_move(_game: &Game, turn: &u32, _board: &Board, you: &Battlesnake) -> 
     }
 
     // TODO: Step 1 - Prevent your Battlesnake from moving out of bounds
-    // let board_width = &board.width;
-    // let board_height = &board.height;
+    let board_width = &_board.width;
+    let board_height = &_board.height;
+
+    if my_head.x == 0 { // Head is on left edge, don't move left
+        is_move_safe.insert("left", false);
+    } else if my_head.x == board_width - 1 { // Head is on right edge, don't move right
+        is_move_safe.insert("right", false);
+    }
+
+    if my_head.y == 0 { // Head is on bottom edge, don't move down
+        is_move_safe.insert("down", false);
+    } else if my_head.y == board_height - 1 { // Head is on top edge, don't move up
+        is_move_safe.insert("up", false);
+    }
 
     // TODO: Step 2 - Prevent your Battlesnake from colliding with itself
     // let my_body = &you.body;
