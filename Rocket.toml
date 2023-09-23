@@ -1,4 +1,9 @@
-[default]
+[dev]
+address = "0.0.0.0"
+port = 8000
+keep_alive = 0
+
+[prod]
 address = "0.0.0.0"
 port = 8000
 keep_alive = 0
