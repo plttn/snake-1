@@ -26,9 +26,9 @@ pub fn info() -> Value {
     return json!({
         "apiversion": "1",
         "author": "plttn",
-        "color": "#888888",
-        "head": "default",
-        "tail": "default",
+        "color": "#ff4f00",
+        "head": "gamer",
+        "tail": "pixel",
     });
 }
 
